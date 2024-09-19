@@ -22,15 +22,16 @@ class Status(Enum):
 class OrderItemSchema(BaseModel):
     product: str
     size: Size
-    quantity: Optional[int] = Field(default=1, ge=1, strict=True)
+    quantity: int = Field(default=1, ge=1)
 
 class CreateOrderSchema(BaseModel):
-    order: List[OrderItemSchema] = Field(min_length=1)
+    order_items: List[OrderItemSchema]
 
 class GetOrderSchema(CreateOrderSchema):
     id: UUID
     created: datetime
     status: Status
+    order: Optional[int] = None
 
 class GetOrdersSchema(BaseModel):
     orders: List[GetOrderSchema]
