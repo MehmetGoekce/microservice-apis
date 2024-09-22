@@ -1,0 +1,9 @@
+basePath: /api
+host: localhost:8080
+info:
+  contact: {}
+  description: API that allows you to manage orders for Kaffeehaus
+  title: Orders API
+  version: "1.0"
+paths: {}
+swagger: "2.0"
