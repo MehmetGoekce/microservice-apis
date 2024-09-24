@@ -40,7 +40,7 @@ def get_orders():
           response_model=GetOrderSchema,
           )
 def create_order(order_details: CreateOrderSchema):
-    order = order_details.dict()
+    order = order_details.model_dump()
     order['id'] = uuid.uuid4()
     order['created'] = datetime.today
     order['status'] = 'created'
@@ -62,7 +62,7 @@ def get_order(order_id: UUID):
 def update_order(order_id: UUID, order_details: CreateOrderSchema):
     for order in orders:
         if order['id'] == order_id:
-            order.update(order_details.dict())
+            order.update(order_details.model_dump())
             return order
         raise HTTPException(
             status_code=404, detail=f'Order with ID {order_id} not found'
@@ -96,7 +96,7 @@ def cancel_order(order_id: UUID):
 
 @app.post('/orders/{order_id}/pay', response_model=GetOrderSchema)
 def pay_order(order_id: UUID):
-    for order in ORDERS:
+    for order in orders:
         if order['id'] == order_id:
             order['status'] = 'progress'
             return order

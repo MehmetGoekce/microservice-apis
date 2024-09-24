@@ -1,3 +1,3 @@
 # microservice-apis
-## /basicap with Python, FastAPI
-## /web-service-gin with gin and swagger
+## /basicap with Python, FastAPI and Pydantic
+## /web-service-gin with Gin and Swagger
