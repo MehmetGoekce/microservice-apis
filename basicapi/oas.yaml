@@ -2,7 +2,7 @@ openapi: 3.0.3
 
 info:
   title: Orders API
-  description: API that allows you to manage orders for CoffeeMesh
+  description: API that allows you to manage orders for Kaffeehaus
   version: 1.0.0
 
 servers:

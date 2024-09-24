@@ -24,14 +24,15 @@ class OrderItemSchema(BaseModel):
     size: Size
     quantity: int = Field(default=1, ge=1)
 
+
 class CreateOrderSchema(BaseModel):
-    order_items: List[OrderItemSchema]
+    orders: List[OrderItemSchema]
 
 class GetOrderSchema(CreateOrderSchema):
     id: UUID
     created: datetime
     status: Status
-    order: Optional[int] = None
+    order: Optional[UUID] = None
 
 class GetOrdersSchema(BaseModel):
     orders: List[GetOrderSchema]
